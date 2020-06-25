@@ -19,5 +19,7 @@ class Movies {
 
     render() {
         console.log("rendering")
+        const moviesContainer = document.querySelector('#movies-container')
+        moviesContainer.innerHTML = "posters should go here"
     }
 }
