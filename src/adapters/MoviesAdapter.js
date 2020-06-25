@@ -1,10 +1,13 @@
 class MoviesAdapter {
     constructor() {
-        this.baseUrl = 'localhost:3000/movies'
+        this.baseUrl = 'http://localhost:3000/movies'
     }
 
-    getmovies() {
+    getMovies() {
         return fetch(this.baseUrl).then(res => res.json())
     }
 }
 
+// adapter = new MoviesAdapter()
+
+// const movies = adapter.getMovies()
