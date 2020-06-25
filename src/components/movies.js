@@ -10,7 +10,7 @@ class Movies {
     fetchAndLoadMovies() {
         console.log("you hit the fetAndLoadMovies method")
         this.adapter.getMovies().then(movies => {
-            return console.log(movies)
+            movies.forEach(movie => this.movies.push(movie))
         })
         .then(() => {
             this.render()
@@ -21,5 +21,6 @@ class Movies {
         console.log("rendering")
         const moviesContainer = document.querySelector('#movies-container')
         moviesContainer.innerHTML = "posters should go here"
+        console.log('my posters are', this.movies)
     }
 }
