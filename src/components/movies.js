@@ -24,7 +24,7 @@ class Movies {
         // console.log(moviesPostersString)
         const moviesContainer = document.querySelector('#movies-container')
         // moviesContainer.innerHTML = this.movies.map(movie => `<li>${movie.poster}</li>`).join('')
-        moviesContainer.innerHTML = this.movies.map(movie => `<li><img src="${movie.poster}"></li>`).join('')
+        moviesContainer.innerHTML = this.movies.map(movie => `<li><img src="${movie.poster}" id=${movie.id}></li>`).join('')
 
         // console.log('my posters are', this.movies)
     }
