@@ -10,7 +10,14 @@ class Movies {
     fetchAndLoadMovies() {
         console.log("you hit the fetAndLoadMovies method")
         this.adapter.getMovies().then(movies => {
-            console.log(movies)
+            return console.log(movies)
         })
+        .then(() => {
+            this.render()
+        })
+    }
+
+    render() {
+        console.log("rendering")
     }
 }
