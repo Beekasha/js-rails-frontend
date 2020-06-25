@@ -19,11 +19,11 @@ class Movies {
     }
 
     render() {
-        console.log("rendering")
-        const moviesPostersArray = this.movies.map(movie => `<li>${movie.poster}</li>`)
-        console.log(moviesPostersArray)
+        // console.log("rendering")
+        // const moviesPostersString = this.movies.map(movie => `<li>${movie.poster}</li>`).join('')
+        // console.log(moviesPostersString)
         const moviesContainer = document.querySelector('#movies-container')
-        // moviesContainer.innerHTML = `${}`
+        moviesContainer.innerHTML = this.movies.map(movie => `<li>${movie.poster}</li>`).join('')
         // console.log('my posters are', this.movies)
     }
 }
