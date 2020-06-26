@@ -8,6 +8,13 @@ class Movies {
 
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
+        this.movieForm = document.querySelector('#new-movie-form')
+        this.movieForm.addEventListener('submit', this.createMovie)
+    }
+
+    createMovie(e) {
+        e.preventDefault()
+        console.log("movie is being created")
     }
 
 
