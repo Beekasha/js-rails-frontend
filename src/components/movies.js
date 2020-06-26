@@ -9,12 +9,18 @@ class Movies {
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
         this.movieForm = document.querySelector('#new-movie-form')
-        this.movieForm.addEventListener('submit', this.createMovie)
+        // this.movieForm.addEventListener('submit', this.createMovie)
+        this.movieForm.addEventListener('submit', this.fetchOmdbApi)
     }
 
-    createMovie(e) {
+    // createMovie(e) {
+    //     e.preventDefault() //default is having the page refresh on a form submit
+    //     console.log("movie is being created")
+    // }
+
+    fetchOmdbApi(e) {
         e.preventDefault()
-        console.log("movie is being created")
+        console.log("should make call to OMDB API")
     }
 
 
