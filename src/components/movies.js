@@ -21,6 +21,7 @@ class Movies {
     fetchOmdbApi(e) {
         e.preventDefault()
         console.log("should make call to OMDB API")
+        
     }
 
 
