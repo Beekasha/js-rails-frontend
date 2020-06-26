@@ -2,8 +2,12 @@ class Movies {
     constructor() {
         this.movies = []
         this.adapter = new MoviesAdapter()
-        // this.bindEventListeners()
+        this.initBindingsAndEventListeners()
         this.fetchAndLoadMovies()
+    }
+
+    initBindingsAndEventListeners() {
+        this.moviesContainer = document.querySelector('#movies-container')
     }
 
 
@@ -19,13 +23,7 @@ class Movies {
     }
 
     render() {
-        // console.log("rendering")
-        // const moviesPostersString = this.movies.map(movie => `<li>${movie.poster}</li>`).join('')
-        // console.log(moviesPostersString)
-        const moviesContainer = document.querySelector('#movies-container')
-        // moviesContainer.innerHTML = this.movies.map(movie => `<li>${movie.poster}</li>`).join('')
-        moviesContainer.innerHTML = this.movies.map(movie => `<li><img src="${movie.poster}" id=${movie.id}></li>`).join('')
-
-        // console.log('my posters are', this.movies)
+        // referencing moviesContainer in the initBindingsAndEventListeners method
+        this.moviesContainer.innerHTML = this.movies.map(movie => movie.renderLi()).join('')
     }
 }
