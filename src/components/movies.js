@@ -9,13 +9,30 @@ class Movies {
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
         this.movieForm = document.querySelector('#new-movie-form')
+        this.movieSearch = document.querySelector('#new-movie-search')
         // this.movieForm.addEventListener('submit', this.createMovie)
 
         // this.movieForm.addEventListener('submit', this.fetchOmdbApi)
         // this.movieForm.addEventListener('submit', Movie.fetchAndLoadMovies)
-        this.movieForm.addEventListener('submit', Movie.fetchOmdbApi)
+        this.movieForm.addEventListener('submit', this.fetchOmdbApi.bind(this))
         
 
+    }
+
+    fetchOmdbApi(e) {
+        e.preventDefault()
+        console.log("fetchOmdbApi was called")
+        
+        console.log("should make call to OMDB API")
+
+        // Movie.testFunc()
+        console.log(this.movieSearch.value)
+        // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
+
+        // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
+        // .then(() => {
+        //     this.render() // should rerender after pushing to the main Movies array
+        // })
     }
 
     // createMovie(e) {

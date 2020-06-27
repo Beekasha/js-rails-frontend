@@ -20,12 +20,12 @@ class Movie {
 
     initBindingsAndEventListeners() {
         // this.moviesContainer = document.querySelector('#movies-container')
-        this.movieForm = document.querySelector('#new-movie-form')
+        // this.movieForm = document.querySelector('#new-movie-form')
         // this.movieForm.addEventListener('submit', this.createMovie)
 
         // this.movieForm.addEventListener('submit', this.fetchOmdbApi)
         // this.movieForm.addEventListener('submit', Movie.fetchAndLoadMovies)
-        this.movieForm.addEventListener('submit', this.fetchOmdbApi)
+        // this.movieForm.addEventListener('submit', this.fetchOmdbApi.bind(this))
         
 
     }
@@ -34,21 +34,21 @@ class Movie {
         return `<li><img src="${this.poster}" id=${this.id}></li>`
     }
 
-    fetchOmdbApi(e) {
-        e.preventDefault()
-        console.log("fetchOmdbApi was called")
+    // fetchOmdbApi(e) {
+    //     e.preventDefault()
+    //     console.log("fetchOmdbApi was called")
         
-        console.log("should make call to OMDB API")
+    //     console.log("should make call to OMDB API")
 
-        // Movie.testFunc()
-        console.log(this.adapter)
-        // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
+    //     // Movie.testFunc()
+    //     console.log(this)
+    //     // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
 
-        // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
-        // .then(() => {
-        //     this.render() // should rerender after pushing to the main Movies array
-        // })
-    }
+    //     // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
+    //     // .then(() => {
+    //     //     this.render() // should rerender after pushing to the main Movies array
+    //     // })
+    // }
 
     testFunc() {
         console.log(this.adapter)
