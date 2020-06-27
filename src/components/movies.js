@@ -26,7 +26,8 @@ class Movies {
         console.log("should make call to OMDB API")
 
         // Movie.testFunc()
-        console.log(this.movieSearch.value)
+        const value = this.movieSearch.value
+        console.log(value)
         // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
 
         // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
