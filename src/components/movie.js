@@ -31,7 +31,7 @@ class Movie {
     }
 
     renderLi() {
-        return `<li><img src="${this.poster}" id=${this.id}></li>`
+        return `<img src="${this.poster}" id=${this.id} vspace="10" hspace="10">`
     }
 
     // searchForMovie(e) {
