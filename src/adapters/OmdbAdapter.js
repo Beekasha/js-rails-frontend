@@ -4,7 +4,7 @@ class OmdbAdapter {
     }
 
     getMovie(search) {
-        console.log("OmdbAdapter getMovie function called")
+        console.log(`OmdbAdapter getMovie function called with value: ${search}`)
         return fetch(this.baseUrl).then(res => res.json())
     }
 }

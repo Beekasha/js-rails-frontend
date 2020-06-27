@@ -28,7 +28,7 @@ class Movies {
 
         // Movie.testFunc()
         const value = this.movieSearch.value
-        this.omdbAdapter.getMovie(value)
+        this.omdbAdapter.getMovie(value).then(movie => console.log(movie))
         // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
 
         // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
