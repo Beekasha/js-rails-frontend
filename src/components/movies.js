@@ -11,10 +11,6 @@ class Movies {
         this.moviesContainer = document.querySelector('#movies-container')
         this.movieForm = document.querySelector('#new-movie-form')
         this.movieSearch = document.querySelector('#new-movie-search')
-        // this.movieForm.addEventListener('submit', this.createMovie)
-
-        // this.movieForm.addEventListener('submit', this.searchForMovie)
-        // this.movieForm.addEventListener('submit', Movie.fetchAndLoadMovies)
         this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
         
 
@@ -27,20 +23,13 @@ class Movies {
         console.log("should make call to OMDB API")
         console.log(this)
 
-        // Movie.testFunc()
+ 
         const value = this.movieSearch.value
         let searchedMovie;
         this.omdbAdapter.getMovie(value)
         .then(movie => searchedMovie = movie)
         .then(() => this.saveMovieToApi(searchedMovie))
-        // let searchedMovie = movie
-        // console.log(searchedMovie)
-        // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
 
-        // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
-        // .then(() => {
-        //     this.render() // should rerender after pushing to the main Movies array
-        // })
     }
 
     saveMovieToApi(searchedMovie) {
@@ -66,13 +55,6 @@ class Movies {
         console.log(newMovie)
         return newMovie
     }
-
-    // createMovie(e) {
-    //     e.preventDefault() //default is having the page refresh on a form submit
-    //     console.log("movie is being created")
-    // }
-
-
 
 
     fetchAndLoadMovies() {
