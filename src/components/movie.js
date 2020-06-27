@@ -23,9 +23,9 @@ class Movie {
         // this.movieForm = document.querySelector('#new-movie-form')
         // this.movieForm.addEventListener('submit', this.createMovie)
 
-        // this.movieForm.addEventListener('submit', this.fetchOmdbApi)
+        // this.movieForm.addEventListener('submit', this.searchForMovie)
         // this.movieForm.addEventListener('submit', Movie.fetchAndLoadMovies)
-        // this.movieForm.addEventListener('submit', this.fetchOmdbApi.bind(this))
+        // this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
         
 
     }
@@ -34,9 +34,9 @@ class Movie {
         return `<li><img src="${this.poster}" id=${this.id}></li>`
     }
 
-    // fetchOmdbApi(e) {
+    // searchForMovie(e) {
     //     e.preventDefault()
-    //     console.log("fetchOmdbApi was called")
+    //     console.log("searchForMovie was called")
         
     //     console.log("should make call to OMDB API")
 
@@ -55,9 +55,9 @@ class Movie {
         // console.log('test')
     }
 
-    // fetchOmdbApi(e) {
+    // searchForMovie(e) {
     //     e.preventDefault()
-    //     console.log("fetchOmdbApi was called")
+    //     console.log("searchForMovie was called")
         
     //     console.log("should make call to OMDB API")
     //     console.log(this)

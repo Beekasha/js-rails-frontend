@@ -12,16 +12,16 @@ class Movies {
         this.movieSearch = document.querySelector('#new-movie-search')
         // this.movieForm.addEventListener('submit', this.createMovie)
 
-        // this.movieForm.addEventListener('submit', this.fetchOmdbApi)
+        // this.movieForm.addEventListener('submit', this.searchForMovie)
         // this.movieForm.addEventListener('submit', Movie.fetchAndLoadMovies)
-        this.movieForm.addEventListener('submit', this.fetchOmdbApi.bind(this))
+        this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
         
 
     }
 
-    fetchOmdbApi(e) {
+    searchForMovie(e) {
         e.preventDefault()
-        console.log("fetchOmdbApi was called")
+        console.log("searchForMovie was called")
         
         console.log("should make call to OMDB API")
 
