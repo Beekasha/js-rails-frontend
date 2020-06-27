@@ -6,8 +6,9 @@ class MoviesAdapter {
     getMovies() {
         return fetch(this.baseUrl).then(res => res.json())
     }
+
+    // saveMovie(searchedMovie) {
+    //     return fetch(this.baseUrl).then(res => res.json())
+    // }
 }
 
-// adapter = new MoviesAdapter()
-
-// const movies = adapter.getMovies()

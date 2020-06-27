@@ -25,14 +25,15 @@ class Movies {
         console.log("searchForMovie was called")
         
         console.log("should make call to OMDB API")
+        console.log(this)
 
         // Movie.testFunc()
         const value = this.movieSearch.value
         let searchedMovie;
         this.omdbAdapter.getMovie(value)
         .then(movie => searchedMovie = movie)
-        .then(() => console.log(searchedMovie))
-            // let searchedMovie = movie
+        .then(() => this.saveMovieToApi(searchedMovie))
+        // let searchedMovie = movie
         // console.log(searchedMovie)
         // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
 
@@ -40,6 +41,30 @@ class Movies {
         // .then(() => {
         //     this.render() // should rerender after pushing to the main Movies array
         // })
+    }
+
+    saveMovieToApi(searchedMovie) {
+        // select the correct keys
+        let formattedMovieObj = this.makeMovieReadyForApiPost(searchedMovie)
+
+        console.log("put the post request in here")
+        console.log(formattedMovieObj.title)
+    }
+
+    makeMovieReadyForApiPost(searchedMovie) {
+        console.log("makemovieready")
+        let newMovie = {}
+        newMovie.poster = searchedMovie.Poster
+        newMovie.title = searchedMovie.Title
+        newMovie.year = searchedMovie.Year
+        newMovie.rated = searchedMovie.Rated
+        newMovie.runtime = searchedMovie.Runtime
+        newMovie.director = searchedMovie.Director
+        newMovie.plot = searchedMovie.Plot
+        newMovie.response = searchedMovie.Response
+        newMovie.actors = searchedMovie.Actors
+        console.log(newMovie)
+        return newMovie
     }
 
     // createMovie(e) {
