@@ -3,7 +3,8 @@ class OmdbAdapter {
         this.baseUrl = 'http://www.omdbapi.com/?apikey=9fa6058b&t=batman' //will change the search value
     }
 
-    getMovie() {
+    getMovie(search) {
+        console.log("OmdbAdapter getMovie function called")
         return fetch(this.baseUrl).then(res => res.json())
     }
 }

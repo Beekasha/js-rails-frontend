@@ -2,6 +2,7 @@ class Movies {
     constructor() {
         this.movies = []
         this.adapter = new MoviesAdapter()
+        this.omdbAdapter = new OmdbAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadMovies()
     }
@@ -27,7 +28,7 @@ class Movies {
 
         // Movie.testFunc()
         const value = this.movieSearch.value
-        console.log(value)
+        this.omdbAdapter.getMovie(value)
         // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
 
         // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
