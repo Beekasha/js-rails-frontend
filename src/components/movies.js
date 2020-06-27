@@ -38,6 +38,10 @@ class Movies {
 
         console.log("put the post request in here")
         console.log(formattedMovieObj.title)
+
+        //call the fetch post in here from the adapter
+        this.adapter.postMovieFetchRequest(formattedMovieObj)
+
     }
 
     makeMovieReadyForApiPost(searchedMovie) {
