@@ -29,14 +29,16 @@ class Movies {
 
         // listening for click on all posters
         posters.forEach(poster => {
-            poster.addEventListener("click", this.clickedPoster)
+            poster.addEventListener("click", this.clickedPoster.bind(poster))
         })
         
 
     }
 
     clickedPoster(poster) {
+  
         console.log("you've clicked on a poster")
+        console.log(poster.path[0].id)
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
 
