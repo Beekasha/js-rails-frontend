@@ -5,15 +5,39 @@ class Movies {
         this.omdbAdapter = new OmdbAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadMovies()
+
     }
 
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
         this.movieForm = document.querySelector('#new-movie-form')
         this.movieSearch = document.querySelector('#new-movie-search')
+
+
         this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
         
 
+
+
+        
+
+    }
+
+    afterFetchBindingsAndEventListeners() {
+        let posters = document.querySelectorAll('.rendered-posters')
+
+        // this.renderedPosters.addEventListener('click', this.clickedPoster.bind(this)) 
+        posters.forEach(
+            function(poster) {
+                console.log("heres another poster")
+                // poster.addEventListener("click", clickedPoster())
+            }
+        )
+
+    }
+
+    clickedPoster() {
+        console.log("clickedPoster called")
     }
 
     searchForMovie(e) {
@@ -68,6 +92,9 @@ class Movies {
         })
         .then(() => {
             this.render()
+        })
+        .then(() => {
+            this.afterFetchBindingsAndEventListeners()
         })
     }
 
