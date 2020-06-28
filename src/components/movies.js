@@ -5,7 +5,8 @@ class Movies {
         this.omdbAdapter = new OmdbAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadMovies()
-        this.clickedMovie = {}
+        // this.afterFetchBindingsAndEventListeners()
+        // this.clickedMovie = {}
 
     }
 
@@ -20,19 +21,35 @@ class Movies {
         this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
     }
 
+    fetchAndLoadMovies() {
+        console.log("you hit the fetAndLoadMovies method")
+        this.adapter.getMovies().then(movies => {
+            movies.forEach(movie => this.movies.push(new Movie(movie)))
+        })
+        .then(() => {
+            this.render()
+        })
+        .then(() => {
+            this.afterFetchBindingsAndEventListeners()
+        })
+    }
+
     afterFetchBindingsAndEventListeners() {
        
+        console.log("hitting the afterFetch")
         let posters = document.querySelectorAll('.rendered-posters')  // select all posters
      
 
         // listening for click on all posters
         posters.forEach(poster => {
             poster.addEventListener("click", this.removeAllPosters)
+            
 
 
             // let movie_id = poster.path[0].id
             // console.log(movie_id)
         })
+        
         
 
     }
@@ -46,6 +63,18 @@ class Movies {
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
         console.log("posters removed")
+        // console.log(this.parentNode.parentNode.parentNode)
+        // console.log(container)
+        let header_text = document.querySelector('#header-text')
+        header_text.innerHTML = "new header"
+
+        // let header = document.createElement("h1")
+        // let header_text = document.createTextNode("new header")
+        // document.body.insertBefore(header)
+
+
+
+
         // console.log(this.id)
 
         // Movies.prototype.fetchSingularMovieFromRailsApi(movieId).bind(this)
@@ -135,21 +164,14 @@ class Movies {
     }
 
 
-    fetchAndLoadMovies() {
-        console.log("you hit the fetAndLoadMovies method")
-        this.adapter.getMovies().then(movies => {
-            movies.forEach(movie => this.movies.push(new Movie(movie)))
-        })
-        .then(() => {
-            this.render()
-        })
-        .then(() => {
-            this.afterFetchBindingsAndEventListeners()
-        })
-    }
+
 
     render() {
         // referencing moviesContainer in the initBindingsAndEventListeners method
         this.moviesContainer.innerHTML = this.movies.map(movie => movie.renderLi()).join('')
+    }
+
+    renderSingle() { //building this for the show page
+
     }
 }
