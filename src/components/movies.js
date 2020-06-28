@@ -5,13 +5,10 @@ class Movies {
         this.omdbAdapter = new OmdbAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadMovies()
-        // this.afterFetchBindingsAndEventListeners()
-        // this.clickedMovie = {}
-        this.currentMovieId;
 
     }
 
-    // let clickedMovie = {};
+ 
 
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
@@ -51,17 +48,14 @@ class Movies {
                 .then(data =>  this.renderSelectedMovie(data))
             })
 
-
-
-            // let movie_id = poster.path[0].id
-            // console.log(movie_id)
         })
     }
 
     renderSelectedMovie = (movie) =>
     {
         let main = document.querySelector("body");
-        main.innerHTML = `
+        main.innerHTML = 
+        `
         <div>
             <h1> ${movie.title} (${movie.year}) </h1>
             <img src="${movie.poster}"/>
@@ -70,60 +64,16 @@ class Movies {
             <p>Director: ${movie.director}</p>
             <p>Actors: ${movie.actors}</p>
             <p>Plot: ${movie.plot}</p>
-        </div>`
+        </div>
+        `
     }
 
     removeAllPosters() {
-  
-   
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
         console.log("posters removed")
-        console.log(this)
-
-        let header_text = document.querySelector('#header-text')
-        header_text.innerHTML = `New Header`
-
-        // let header = document.createElement("h1")
-        // let header_text = document.createTextNode("new header")
-        // document.body.insertBefore(header)
-
-
-
-
-        // console.log(this.id)
-
-        // Movies.prototype.fetchSingularMovieFromRailsApi(movieId).bind(this)
-        // let movieClicked = new myMovie(movieId)
-        // console.log(movieClicked.movieId)
-
-        // movieClicked.adapter.getMovie(movieClicked.movieId)
-        // .then(movie => {
-        //     console.log(movie)
-        //     console.log(this)
-        //     // this.renderNewHtml(movie)
-        // })
         
     }
-    
-
-    // renderNewHtml(movie) {
-    //     console.log(movie.title)
-    // }
-
-    // fetchSingularMovieFromRailsApi(movieId) {
-       
-    //     console.log("fetchSingularMovie called")
-    //     console.log(movieId)
-    //     console.log(this)
-    //     console.log(Movies.this)
-
-    //     this.adapter.getMovie(movieId)
-    //     .then(movie => {
-    //         console.log(movie.title)
-    //     })
-
-    // }
 
 
     searchForMovie(e) {
