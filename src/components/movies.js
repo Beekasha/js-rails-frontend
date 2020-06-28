@@ -45,13 +45,13 @@ class Movies {
                 this.removeAllPosters(),
                 fetch(`http://localhost:3000/movies/${event.target.id}`)
                 .then(resp => resp.json())
-                .then(data =>  this.renderSelectedMovie(data))
+                .then(data =>  this.renderSelectedMoviePage(data))
             })
 
         })
     }
 
-    renderSelectedMovie = (movie) =>
+    renderSelectedMoviePage = (movie) =>
     {
         let main = document.querySelector("body");
         main.innerHTML = 
@@ -64,6 +64,7 @@ class Movies {
             <p>Director: ${movie.director}</p>
             <p>Actors: ${movie.actors}</p>
             <p>Plot: ${movie.plot}</p>
+            <button type="button" onclick="location.reload()">Back to Watchlist</button>
         </div>
         `
     }
