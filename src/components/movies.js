@@ -38,10 +38,17 @@ class Movies {
     clickedPoster(poster) {
   
         console.log("you've clicked on a poster")
-        console.log(poster.path[0].id)
+        let movieId = poster.path[0].id
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
 
+        console.log(movieId)
+        Movies.prototype.fetchSingularMovieFromRailsApi(movieId)
+
+    }
+
+    fetchSingularMovieFromRailsApi(movieId) {
+        console.log("fetchSingularMovie called")
     }
 
 

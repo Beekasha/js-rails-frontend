@@ -7,6 +7,10 @@ class MoviesAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
+    getMovie() {
+        console.log("MoviesAdapter getMovie singular called")
+    }
+
     postMovieFetchRequest(formattedMovieObj) {
         fetch(this.baseUrl, {
             method: 'POST',
