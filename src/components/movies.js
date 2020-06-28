@@ -7,6 +7,7 @@ class Movies {
         this.fetchAndLoadMovies()
         // this.afterFetchBindingsAndEventListeners()
         // this.clickedMovie = {}
+        this.currentMovieId;
 
     }
 
@@ -42,31 +43,41 @@ class Movies {
 
         // listening for click on all posters
         posters.forEach(poster => {
-            poster.addEventListener("click", this.removeAllPosters)
-            
+            poster.addEventListener("click", (event) => {
+
+                this.removeAllPosters(),
+                fetch(`http://localhost:3000/movies/${event.target.id}`)
+                .then(resp => resp.json())
+                .then(data =>  this.renderSelectedMovie(data))
+                            })
+
 
 
             // let movie_id = poster.path[0].id
             // console.log(movie_id)
         })
-        
-        
+    }
 
+    renderSelectedMovie = (movie) =>
+    {
+        let main = document.querySelector("body");
+        main.innerHTML = `
+        <div>
+            <h1> ${movie.title} </h1>
+            <img src="${movie.poster}"/>
+        </div>`
     }
 
     removeAllPosters() {
   
-        // let movieId = poster.path[0].id
-        let movieId = this.id
-        // let movieClicked = Movies.adapter.getMovie(movieId)
-        // console.log(movieClicked)
+   
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
         console.log("posters removed")
-        // console.log(this.parentNode.parentNode.parentNode)
-        // console.log(container)
+        console.log(this)
+
         let header_text = document.querySelector('#header-text')
-        header_text.innerHTML = "new header"
+        header_text.innerHTML = `New Header`
 
         // let header = document.createElement("h1")
         // let header_text = document.createTextNode("new header")
@@ -89,6 +100,7 @@ class Movies {
         // })
         
     }
+    
 
     // renderNewHtml(movie) {
     //     console.log(movie.title)
@@ -118,7 +130,6 @@ class Movies {
             console.log("searchForMovie was called")
             
             console.log("should make call to OMDB API")
-            console.log(this)
 
             
             
