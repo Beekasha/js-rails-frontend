@@ -27,18 +27,18 @@ class Movies {
         let posters = document.querySelectorAll('.rendered-posters')
 
         // this.renderedPosters.addEventListener('click', this.clickedPoster.bind(this)) 
-        posters.forEach(
-            function(poster) {
-                console.log("heres another poster")
-                // poster.addEventListener("click", clickedPoster())
-            }
-        )
+        posters.forEach(poster => {
+            poster.addEventListener("click", this.clickedPoster)
+            // poster.addEventListener("click", clickedPoster())
+        })
+        
 
     }
 
-    clickedPoster() {
-        console.log("clickedPoster called")
+    clickedPoster(poster) {
+        console.log("you've clicked on a poster")
     }
+
 
     searchForMovie(e) {
         e.preventDefault()
