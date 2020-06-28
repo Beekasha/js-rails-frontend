@@ -5,8 +5,11 @@ class Movies {
         this.omdbAdapter = new OmdbAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadMovies()
+        this.clickedMovie = {}
 
     }
+
+    // let clickedMovie = {};
 
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
@@ -20,30 +23,47 @@ class Movies {
     afterFetchBindingsAndEventListeners() {
        
         let posters = document.querySelectorAll('.rendered-posters')  // select all posters
+     
 
         // listening for click on all posters
         posters.forEach(poster => {
-            poster.addEventListener("click", this.clickedPoster.bind(poster))
+            poster.addEventListener("click", this.removeAllPosters)
+
+
+            // let movie_id = poster.path[0].id
+            // console.log(movie_id)
         })
         
 
     }
 
-    clickedPoster(poster) {
+    removeAllPosters() {
   
-        let movieId = poster.path[0].id
+        // let movieId = poster.path[0].id
+        let movieId = this.id
+        // let movieClicked = Movies.adapter.getMovie(movieId)
+        // console.log(movieClicked)
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
-        // Movies.prototype.fetchSingularMovieFromRailsApi(movieId).bind(this)
-        let movieClicked = new myMovie(movieId)
-        console.log(movieClicked.movieId)
+        console.log("posters removed")
+        // console.log(this.id)
 
-        movieClicked.adapter.getMovie(movieClicked.movieId)
-        .then(movie => {
-            console.log(movie.title)
-        })
+        // Movies.prototype.fetchSingularMovieFromRailsApi(movieId).bind(this)
+        // let movieClicked = new myMovie(movieId)
+        // console.log(movieClicked.movieId)
+
+        // movieClicked.adapter.getMovie(movieClicked.movieId)
+        // .then(movie => {
+        //     console.log(movie)
+        //     console.log(this)
+        //     // this.renderNewHtml(movie)
+        // })
         
     }
+
+    // renderNewHtml(movie) {
+    //     console.log(movie.title)
+    // }
 
     // fetchSingularMovieFromRailsApi(movieId) {
        
@@ -117,7 +137,6 @@ class Movies {
 
     fetchAndLoadMovies() {
         console.log("you hit the fetAndLoadMovies method")
-        console.log(this)
         this.adapter.getMovies().then(movies => {
             movies.forEach(movie => this.movies.push(new Movie(movie)))
         })
