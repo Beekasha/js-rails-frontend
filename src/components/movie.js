@@ -21,10 +21,6 @@ class Movie {
     }
 
 
-    testFunc() {
-        console.log(this.adapter)
-        // console.log('test')
-    }
 
 
 }

@@ -15,12 +15,6 @@ class Movies {
 
 
         this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
-        
-
-
-
-        
-
     }
 
     afterFetchBindingsAndEventListeners() {
@@ -37,19 +31,33 @@ class Movies {
 
     clickedPoster(poster) {
   
-        console.log("you've clicked on a poster")
         let movieId = poster.path[0].id
         let container = document.querySelector('.container') //select all data on main page
         container.parentNode.removeChild(container) // removes all posters from page
+        // Movies.prototype.fetchSingularMovieFromRailsApi(movieId).bind(this)
+        let movieClicked = new myMovie(movieId)
+        console.log(movieClicked.movieId)
 
-        console.log(movieId)
-        Movies.prototype.fetchSingularMovieFromRailsApi(movieId)
-
+        movieClicked.adapter.getMovie(movieClicked.movieId)
+        .then(movie => {
+            console.log(movie.title)
+        })
+        
     }
 
-    fetchSingularMovieFromRailsApi(movieId) {
-        console.log("fetchSingularMovie called")
-    }
+    // fetchSingularMovieFromRailsApi(movieId) {
+       
+    //     console.log("fetchSingularMovie called")
+    //     console.log(movieId)
+    //     console.log(this)
+    //     console.log(Movies.this)
+
+    //     this.adapter.getMovie(movieId)
+    //     .then(movie => {
+    //         console.log(movie.title)
+    //     })
+
+    // }
 
 
     searchForMovie(e) {
@@ -109,6 +117,7 @@ class Movies {
 
     fetchAndLoadMovies() {
         console.log("you hit the fetAndLoadMovies method")
+        console.log(this)
         this.adapter.getMovies().then(movies => {
             movies.forEach(movie => this.movies.push(new Movie(movie)))
         })
