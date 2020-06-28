@@ -12,59 +12,19 @@ class Movie {
         this.actors = movieJSON.actors
         this.fetchedMovies = []
         this.adapter = new OmdbAdapter()
-
-
-        this.initBindingsAndEventListeners()
-
     }
 
-    initBindingsAndEventListeners() {
-        // this.moviesContainer = document.querySelector('#movies-container')
-        // this.movieForm = document.querySelector('#new-movie-form')
-        // this.movieForm.addEventListener('submit', this.createMovie)
 
-        // this.movieForm.addEventListener('submit', this.searchForMovie)
-        // this.movieForm.addEventListener('submit', Movie.fetchAndLoadMovies)
-        // this.movieForm.addEventListener('submit', this.searchForMovie.bind(this))
-        
-
-    }
 
     renderLi() {
         return `<img src="${this.poster}" id=${this.id} vspace="10" hspace="10" class="rendered-posters">`
     }
 
-    // searchForMovie(e) {
-    //     e.preventDefault()
-    //     console.log("searchForMovie was called")
-        
-    //     console.log("should make call to OMDB API")
-
-    //     // Movie.testFunc()
-    //     console.log(this)
-    //     // this.adapter.getMovie().then(movie => this.fetchedMovies.push(new Movie(movie)))
-
-    //     // this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
-    //     // .then(() => {
-    //     //     this.render() // should rerender after pushing to the main Movies array
-    //     // })
-    // }
 
     testFunc() {
         console.log(this.adapter)
         // console.log('test')
     }
 
-    // searchForMovie(e) {
-    //     e.preventDefault()
-    //     console.log("searchForMovie was called")
-        
-    //     console.log("should make call to OMDB API")
-    //     console.log(this)
-    //     this.adapter.getMovie().then(movie => Movies.movies.push(new Movie(movie)))
-    //     .then(() => {
-    //         this.render()
-    //     })
 
-    // }
 }

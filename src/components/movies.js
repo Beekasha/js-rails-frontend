@@ -24,12 +24,12 @@ class Movies {
     }
 
     afterFetchBindingsAndEventListeners() {
+        // select all posters
         let posters = document.querySelectorAll('.rendered-posters')
 
-        // this.renderedPosters.addEventListener('click', this.clickedPoster.bind(this)) 
+        // listening for click on all posters
         posters.forEach(poster => {
             poster.addEventListener("click", this.clickedPoster)
-            // poster.addEventListener("click", clickedPoster())
         })
         
 
