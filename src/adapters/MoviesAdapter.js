@@ -22,8 +22,7 @@ class MoviesAdapter {
           .catch((error) => {
             console.error('Error:', error);
         })
-        .then(() => location.reload())
-        // location.reload();
+        .then(() => location.reload()) //so we can render the new poster on the page now from our database
 
     }
 }

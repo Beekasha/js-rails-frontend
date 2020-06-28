@@ -41,18 +41,28 @@ class Movies {
 
 
     searchForMovie(e) {
-        e.preventDefault()
-        console.log("searchForMovie was called")
-        
-        console.log("should make call to OMDB API")
-        console.log(this)
-
- 
         const value = this.movieSearch.value
-        let searchedMovie;
-        this.omdbAdapter.getMovie(value)
-        .then(movie => searchedMovie = movie)
-        .then(() => this.saveMovieToApi(searchedMovie))
+
+        // wrapped in this if statement to prevent empty calls from being persisted
+        if (value != "") {
+            e.preventDefault()
+            console.log("searchForMovie was called")
+            
+            console.log("should make call to OMDB API")
+            console.log(this)
+
+            
+            
+
+            
+            let searchedMovie;
+            this.omdbAdapter.getMovie(value)
+            .then(movie => searchedMovie = movie)
+            .then(() => this.saveMovieToApi(searchedMovie))
+        } else {
+            e.preventDefault()
+            console.log("movie search is empty")
+        }
 
     }
 
