@@ -24,8 +24,8 @@ class Movies {
     }
 
     afterFetchBindingsAndEventListeners() {
-        // select all posters
-        let posters = document.querySelectorAll('.rendered-posters')
+       
+        let posters = document.querySelectorAll('.rendered-posters')  // select all posters
 
         // listening for click on all posters
         posters.forEach(poster => {
@@ -37,6 +37,9 @@ class Movies {
 
     clickedPoster(poster) {
         console.log("you've clicked on a poster")
+        let container = document.querySelector('.container') //select all data on main page
+        container.parentNode.removeChild(container) // removes all posters from page
+
     }
 
 
