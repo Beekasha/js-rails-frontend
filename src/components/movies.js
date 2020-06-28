@@ -49,7 +49,7 @@ class Movies {
                 fetch(`http://localhost:3000/movies/${event.target.id}`)
                 .then(resp => resp.json())
                 .then(data =>  this.renderSelectedMovie(data))
-                            })
+            })
 
 
 
@@ -63,8 +63,13 @@ class Movies {
         let main = document.querySelector("body");
         main.innerHTML = `
         <div>
-            <h1> ${movie.title} </h1>
+            <h1> ${movie.title} (${movie.year}) </h1>
             <img src="${movie.poster}"/>
+            <p>Rated: ${movie.rated}</p>
+            <p>Runtime: ${movie.runtime}</p><br>
+            <p>Director: ${movie.director}</p>
+            <p>Actors: ${movie.actors}</p>
+            <p>Plot: ${movie.plot}</p>
         </div>`
     }
 
