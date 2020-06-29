@@ -53,6 +53,10 @@ class Movies {
 
     renderSelectedMoviePage = (movie) =>
     {
+
+        //pull reviews somehow - maybe a fetch again - add nested routes to make easier
+        
+        let reviews = this.fetchReviewsByMovieId(movie.id)
         let main = document.querySelector("body");
         main.innerHTML = 
         `
@@ -64,10 +68,22 @@ class Movies {
             <p>Director: ${movie.director}</p>
             <p>Actors: ${movie.actors}</p>
             <p>Plot: ${movie.plot}</p>
+            <p>Reviews: ${movie.reviews}</p>
+            
             <button type="button" onclick="location.reload()">Back to Watchlist</button>
         </div>
         `
+        // debugger
     }
+
+    fetchReviewsByMovieId(movie_id) {
+        console.log("hitting fetchReviews")
+        fetch(`http://localhost:3000/reviews/${movie_id}`)
+        .then(resp => resp.json())
+        .then(data =>  console.log(data)) //data = array of review objects
+    }
+
+
 
     removeAllPosters() {
         let container = document.querySelector('.container') //select all data on main page
