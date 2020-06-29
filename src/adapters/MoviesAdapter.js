@@ -30,7 +30,6 @@ class MoviesAdapter {
             console.error('Error:', error);
         })
         .then(() => location.reload()) //so we can render the new poster on the page now from our database
-
     }
 
     deleteMovie(id) {
@@ -40,6 +39,25 @@ class MoviesAdapter {
             method: 'DELETE',
         })
         .then(() => location.reload())
+    }
+
+    postReviewFetchRequest(newReviewObj) {
+        fetch(this.reviewUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newReviewObj)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Success:', data);
+
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+        })
+        .then(() => location.reload()) //so we can render the new poster on the page now from our database
     }
 }
 

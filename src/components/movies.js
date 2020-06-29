@@ -111,6 +111,8 @@ class Movies {
             new_review_obj.movie_id = movie_id
             new_review_obj.body = review_body.value
             console.log(new_review_obj)
+
+            this.adapter.postReviewFetchRequest(new_review_obj)
         }
 
     }
