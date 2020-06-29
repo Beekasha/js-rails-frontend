@@ -12,7 +12,7 @@ body {
     width: 20%;
     height: 20%;
     border: 10px solid transparent;
-    padding: 15px;
+    padding: 5px;
     border-image: url(images/border.png) 30 round;
 }
 
