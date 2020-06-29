@@ -96,7 +96,11 @@ class Movies {
         console.log(reviews_list)
         console.log(list)
         // document.getElementById("reviews-list").innerHTML = reviews_list;
-        list.innerHTML = reviews_list.join('')
+        if (reviews_list.length === 0) {
+            list.innerHTML = "(you have no reviews saved)"
+        } else {
+            list.innerHTML = reviews_list.join('')
+        }
         
     }
 
