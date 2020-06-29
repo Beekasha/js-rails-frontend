@@ -73,14 +73,17 @@ class Movies {
             <button type="button" onclick="location.reload()">Back to Watchlist</button>
         </div>
         `
-        // debugger
     }
 
     fetchReviewsByMovieId(movie_id) {
         console.log("hitting fetchReviews")
         fetch(`http://localhost:3000/reviews/${movie_id}`)
         .then(resp => resp.json())
-        .then(data =>  console.log(data)) //data = array of review objects
+        .then(data =>  {
+            // return data.map(review => review.body)
+            console.log(data.map(review => review.body))
+
+        }) //data = array of review objects
     }
 
 
