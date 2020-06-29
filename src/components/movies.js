@@ -82,6 +82,7 @@ class Movies {
 
         fetch(`http://localhost:3000/reviews/${movie_id}`)
         .then(resp => resp.json())
+        // .then(data => console.log(data)) //movies pulled from api do not have reviews
         .then(data => data.map(review => review.body))
         .then(reviews => this.createReviewLi(reviews))
     }
@@ -96,7 +97,7 @@ class Movies {
         console.log(reviews_list)
         console.log(list)
         // document.getElementById("reviews-list").innerHTML = reviews_list;
-        if (reviews_list.length === 0) {
+        if ((reviews_list.length === 0) || (reviews_list === undefined))  {
             list.innerHTML = "(you have no reviews saved)"
         } else {
             list.innerHTML = reviews_list.join('')
