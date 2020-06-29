@@ -56,7 +56,12 @@ class Movies {
 
         //pull reviews somehow - maybe a fetch again - add nested routes to make easier
         
-        let reviews = this.fetchReviewsByMovieId(movie.id)
+        // let reviews = this.fetchReviewsByMovieId(movie.id)
+        this.fetchReviewsByMovieId(movie.id)
+        
+        
+  
+        // console.log(this.fetchReviewsByMovieId(movie.id))
         let main = document.querySelector("body");
         main.innerHTML = 
         `
@@ -77,13 +82,19 @@ class Movies {
 
     fetchReviewsByMovieId(movie_id) {
         console.log("hitting fetchReviews")
-        fetch(`http://localhost:3000/reviews/${movie_id}`)
-        .then(resp => resp.json())
-        .then(data =>  {
-            // return data.map(review => review.body)
-            console.log(data.map(review => review.body))
 
-        }) //data = array of review objects
+        return fetch(`http://localhost:3000/reviews/${movie_id}`)
+        .then(resp => resp.json())
+        .then(data => data.map(review => review.body))
+        .then(reviews => this.renderReviewLi(reviews))
+        // .then(bodies => {
+        //     this.renderReviewLi(bodies)
+        // })
+    }
+
+    renderReviewLi(reviews_array) {
+        console.log("yoooo")
+        console.log(reviews_array)
     }
 
 
