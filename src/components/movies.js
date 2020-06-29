@@ -74,12 +74,32 @@ class Movies {
                 <ul id="reviews-list">
                 </ul>
             </p>
+            <div id="new-review-container">
+            <form id="new-review-form">
+                <input type="text" name="review-body" id="new-review-body">
+                <input type="submit" value="Save review">
+            </form>
+            </div>
             
             <button type="button" onclick="location.reload()">Back to Watchlist</button>
         </div>
         `
         console.log("under this should be my array of Li")
+
+
         this.fetchReviewsByMovieId(movie.id)
+
+        let new_review_form = document.querySelector('#new-review-form')
+        console.log(new_review_form)
+        new_review_form.addEventListener('submit', this.saveNewReview.bind(this))
+
+    }
+
+    saveNewReview(e) {
+        e.preventDefault()
+
+        console.log("saveNewReview hit")
+
     }
 
     fetchReviewsByMovieId(movie_id) {
@@ -129,11 +149,6 @@ class Movies {
             console.log("searchForMovie was called")
             
             console.log("should make call to OMDB API")
-
-            
-            
-
-            
             let searchedMovie;
             this.omdbAdapter.getMovie(value)
             .then(movie => searchedMovie = movie)

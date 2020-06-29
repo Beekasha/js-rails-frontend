@@ -40,28 +40,6 @@ class MoviesAdapter {
             method: 'DELETE',
         })
         .then(() => location.reload())
-
     }
-
-    // postReviewFetchRequest(id) {
-    //     let newReview = {}
-    //     newReview.movie_id = id
-    //     newReview.body = ""
-    //     fetch(this.reviewUrl, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(newReview)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log('Success:', data);
-    //         debugger
-    //     })
-    //       .catch((error) => {
-    //         console.error('Error:', error);
-    //     })
-    // }
 }
 
