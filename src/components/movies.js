@@ -53,15 +53,6 @@ class Movies {
 
     renderSelectedMoviePage = (movie) =>
     {
-
-        //pull reviews somehow - maybe a fetch again - add nested routes to make easier
-        
-        // let reviews = this.fetchReviewsByMovieId(movie.id)
-        this.fetchReviewsByMovieId(movie.id)
-        
-        
-  
-        // console.log(this.fetchReviewsByMovieId(movie.id))
         let main = document.querySelector("body");
         main.innerHTML = 
         `
@@ -73,28 +64,40 @@ class Movies {
             <p>Director: ${movie.director}</p>
             <p>Actors: ${movie.actors}</p>
             <p>Plot: ${movie.plot}</p>
-            <p>Reviews: ${movie.reviews}</p>
+            <p>
+                Reviews: 
+                <ul id="reviews-list">
+                </ul>
+            </p>
             
             <button type="button" onclick="location.reload()">Back to Watchlist</button>
         </div>
         `
+        console.log("under this should be my array of Li")
+        this.fetchReviewsByMovieId(movie.id)
     }
 
     fetchReviewsByMovieId(movie_id) {
         console.log("hitting fetchReviews")
 
-        return fetch(`http://localhost:3000/reviews/${movie_id}`)
+        fetch(`http://localhost:3000/reviews/${movie_id}`)
         .then(resp => resp.json())
         .then(data => data.map(review => review.body))
-        .then(reviews => this.renderReviewLi(reviews))
-        // .then(bodies => {
-        //     this.renderReviewLi(bodies)
-        // })
+        .then(reviews => this.createReviewLi(reviews))
     }
 
-    renderReviewLi(reviews_array) {
+    createReviewLi(reviews_array) {
         console.log("yoooo")
         console.log(reviews_array)
+
+        let reviews_list = reviews_array.map(review => `<li>${review}</li>`)
+        
+        let list = document.querySelector('#reviews-list')
+        console.log(reviews_list)
+        console.log(list)
+        // document.getElementById("reviews-list").innerHTML = reviews_list;
+        list.innerHTML = reviews_list.join('')
+        
     }
 
 
