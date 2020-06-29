@@ -149,6 +149,9 @@ class Movies {
 
         //call the fetch post in here from the adapter
         this.adapter.postMovieFetchRequest(formattedMovieObj)
+ 
+
+        //needs something to add a review obj w an empty array
 
     }
 
@@ -166,6 +169,7 @@ class Movies {
         newMovie.actors = searchedMovie.Actors
         console.log(newMovie)
         return newMovie
+
     }
 
 
