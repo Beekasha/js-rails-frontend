@@ -8,8 +8,6 @@ class Movies {
 
     }
 
- 
-
     initBindingsAndEventListeners() {
         this.moviesContainer = document.querySelector('#movies-container')
         this.movieForm = document.querySelector('#new-movie-form')
@@ -84,13 +82,10 @@ class Movies {
             <button type="button" onclick="location.reload()">Back to Watchlist</button>
         </div>
         `
-        console.log("under this should be my array of Li")
-
 
         this.fetchReviewsByMovieId(movie.id)
 
         let new_review_form = document.querySelector('#new-review-form')
-        console.log(new_review_form)
         new_review_form.addEventListener('submit', this.saveNewReview.bind(this))
 
     }
@@ -142,9 +137,7 @@ class Movies {
         } else {
             list.innerHTML = reviews_list.join('')
         }
-        
     }
-
 
 
     removeAllPosters() {
@@ -172,22 +165,14 @@ class Movies {
             e.preventDefault()
             console.log("movie search is empty")
         }
-
     }
 
     saveMovieToApi(searchedMovie) {
         // select the correct keys
         let formattedMovieObj = this.makeMovieReadyForApiPost(searchedMovie)
 
-        console.log("put the post request in here")
-        console.log(formattedMovieObj.title)
-
         //call the fetch post in here from the adapter
         this.adapter.postMovieFetchRequest(formattedMovieObj)
- 
-
-        //needs something to add a review obj w an empty array
-
     }
 
     makeMovieReadyForApiPost(searchedMovie) {
@@ -207,15 +192,8 @@ class Movies {
 
     }
 
-
-
-
     render() {
         // referencing moviesContainer in the initBindingsAndEventListeners method
         this.moviesContainer.innerHTML = this.movies.map(movie => movie.renderLi()).join('')
-    }
-
-    renderSingle() { //building this for the show page
-
     }
 }

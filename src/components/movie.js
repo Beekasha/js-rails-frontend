@@ -20,7 +20,4 @@ class Movie {
         return `<img src="${this.poster}" id=${this.id} vspace="10" hspace="10" class="rendered-posters">`
     }
 
-
-
-
 }
