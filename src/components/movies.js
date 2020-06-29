@@ -63,7 +63,7 @@ class Movies {
         `
         <div>
             <h1> ${movie.title} (${movie.year}) </h1>
-            <img src="${movie.poster}"/>
+            <img src="${movie.poster}" id="${movie.id}"/>
             <p>Rated: ${movie.rated}</p>
             <p>Runtime: ${movie.runtime}</p><br>
             <p>Director: ${movie.director}</p>
@@ -78,7 +78,7 @@ class Movies {
             <form id="new-review-form">
                 <input type="text" name="review-body" id="new-review-body">
                 <input type="submit" value="Save review">
-            </form>
+            </form><br>
             </div>
             
             <button type="button" onclick="location.reload()">Back to Watchlist</button>
@@ -97,8 +97,17 @@ class Movies {
 
     saveNewReview(e) {
         e.preventDefault()
-
         console.log("saveNewReview hit")
+
+        let review_body = document.querySelector('#new-review-body')
+        if (review_body.value === "") {
+            console.log("shit is empty bruh")
+        } else {
+            //fetch to save review
+            debugger
+        }
+
+        
 
     }
 
