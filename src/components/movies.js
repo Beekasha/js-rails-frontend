@@ -97,17 +97,21 @@ class Movies {
 
     saveNewReview(e) {
         e.preventDefault()
+        let img = document.querySelector('img')
+        let movie_id = img.id
         console.log("saveNewReview hit")
+        console.log(movie_id)
 
         let review_body = document.querySelector('#new-review-body')
         if (review_body.value === "") {
             console.log("shit is empty bruh")
         } else {
-            //fetch to save review
-            debugger
+            //fetch to save review with movie_id
+            let new_review_obj = {}
+            new_review_obj.movie_id = movie_id
+            new_review_obj.body = review_body.value
+            console.log(new_review_obj)
         }
-
-        
 
     }
 
