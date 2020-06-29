@@ -25,14 +25,17 @@ class MoviesAdapter {
         .then(data => {
             console.log('Success:', data);
 
-            //data.id is available here, so call the postReviewFetchRequest here
-            // this.postReviewFetchRequest(data.id)
           })
           .catch((error) => {
             console.error('Error:', error);
         })
         .then(() => location.reload()) //so we can render the new poster on the page now from our database
 
+    }
+
+    deleteMovie(id) {
+        console.log("hitting delete movie func")
+        console.log(id)
     }
 
     // postReviewFetchRequest(id) {

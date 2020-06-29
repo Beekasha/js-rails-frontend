@@ -48,6 +48,11 @@ class Movies {
                 .then(data =>  this.renderSelectedMoviePage(data))
             })
 
+            poster.addEventListener("contextmenu", (event) => {
+                // console.log("")
+                this.adapter.deleteMovie(event.target.id)
+            })
+
         })
     }
 
