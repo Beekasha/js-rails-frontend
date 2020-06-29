@@ -36,6 +36,11 @@ class MoviesAdapter {
     deleteMovie(id) {
         console.log("hitting delete movie func")
         console.log(id)
+        fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE',
+        })
+        .then(() => location.reload())
+
     }
 
     // postReviewFetchRequest(id) {
