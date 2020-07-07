@@ -188,7 +188,11 @@ class Movies {
         newMovie.response = searchedMovie.Response
         newMovie.actors = searchedMovie.Actors
         console.log(newMovie)
-        return newMovie
+
+        // only returns movie if the API gives a response.
+        if (newMovie.response === "True") { 
+            return newMovie
+        }
 
     }
 
