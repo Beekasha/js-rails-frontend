@@ -44,6 +44,7 @@ class Movies {
                 fetch(`http://localhost:3000/movies/${event.target.id}`)
                 .then(resp => resp.json())
                 .then(data =>  this.renderSelectedMoviePage(data))
+                // .then(data => this.addLikeButtonListeners())
             })
 
             poster.addEventListener("contextmenu", (event) => {
@@ -54,6 +55,7 @@ class Movies {
         })
     }
 
+
     renderSelectedMoviePage = (movie) =>
     {
         let main = document.querySelector("body");
@@ -62,6 +64,11 @@ class Movies {
         <div>
             <h1> ${movie.title} (${movie.year}) </h1>
             <img src="${movie.poster}" id="${movie.id}"/>
+
+            <button id="like-button" type='button' >Like Button</button>
+            <p id=movie-likes> 0 </p>
+
+
             <p>Rated: ${movie.rated}</p>
             <p>Runtime: ${movie.runtime}</p><br>
             <p>Director: ${movie.director}</p>
@@ -88,7 +95,20 @@ class Movies {
         let new_review_form = document.querySelector('#new-review-form')
         new_review_form.addEventListener('submit', this.saveNewReview.bind(this))
 
+        // added for JS-Rails Project Review
+        let likeButton = document.querySelector('#like-button')
+        likeButton.addEventListener('click', this.incrementLikeCount.bind(this))
+
     }
+
+
+    incrementLikeCount() {
+        console.log("new you gotta increment")
+        let movieLikes = document.querySelector('#movie-likes')
+        movieLikes.innerHTML ++
+    }
+
+
 
     saveNewReview(e) {
         e.preventDefault()
